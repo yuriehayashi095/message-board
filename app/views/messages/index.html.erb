@@ -12,7 +12,6 @@
 </div>
 </div>
 <%= form_for(@message, html:{class:"form-horizontal"}) do |f| %>
-<form role="form">
   <div class="form-group">
     <div class="col-md-2">
       <%= f.label :name, "名前", class:"control-label" %>
@@ -30,5 +29,4 @@
     </div>
   </div>
 <%= f.submit class: "btn btn-sm btn-primary" %>
-</form>
 <% end %>
