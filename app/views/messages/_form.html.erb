@@ -1,59 +1,49 @@
-<%= form_for(@message) do |f| %>
+<%= form_for(@message, html:{class:"form-horizontal"}) do |f| %>
 
 <% if @message.errors.present? %>
 
         <div class="alert alert-danger">
+                        
+            <%= alert %>
             
-<%= alert %>
-
-        <ul>
-<<<<<<< HEAD
-        <% @message.errors.full_message.each do |full_message| %>
-        <li>
-        <%= full_message %>
-        </li>
-        <% end %>
-=======
-<% @message.errors.full_message.each do |full_message| %>
-        <li>
-<%= full_message %>
-        </li>
-<% end %>
->>>>>>> challenge1
-        </ul>
+                    <ul>
+            <% @message.errors.full_messages.each do |full_message| %>
+                    <li>
+            <%= full_message %>
+                    </li>
+            <% end %>
+                    </ul>
         </div>
         
 <% end %>
-
-<<<<<<< HEAD
-<%= form_for(@message) do |f| %>
-    <% if @message.errors.present? %>
-    <div class="alert alert-danger">
-        <%= alert %>
-    <ul>
-        <% @message.errors.full_messages.each do |full_message| %>
-            <li>
-            <%= full_message %>
-            </li>
-        <% end %> 
-    </ul>
+    <div class="form-group">
+        <div class="col-md-2">
+            <%= f.label :name, "名前：", class:'control-label' %>
+        </div>
+        <div class="col-md-10">
+            <%= f.text_field :name, class:'form-control' %>
+        </div>
     </div>
-  <% end %>
 
-  名前:
-  <%= f.text_field :name %>
+    <div class="form-group">
+        <div class="col-md-2">
+            <%= f.label :body, "内容:", class:'control-label' %>
+        </div>
+        <div class="col-md-10">
+            <%= f.text_area :body, class:'form-control' %>
+        </div>
+    </div>
 
-  内容:
-  <%= f.text_field :body %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
-=======
-    名前:
-<%= f.text_field :name %>
-
-    内容:
-<%= f.text_field :body %>
+    <div class="form-group">
+        <div class="col-md-2">
+            <%= f.label :age, "年齢：", class:'control-label' %>
+        </div>
+        <div class="col-md-10">
+            <%= f.number_field :age, class:'form-control' %>
+        </div>
+    </div>
+    
 
 <%= f.submit class: "btn btn-sm btn-primary" %>
 
->>>>>>> challenge1
 <% end %>
